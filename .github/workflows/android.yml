@@ -24,3 +24,9 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+          name: CarGPSLogger
+          path: ${{ env.main_project_module }}/build/outputs/apk/release/app-release-unsigned.apk

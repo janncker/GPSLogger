@@ -55,6 +55,11 @@ public class ActionsBroadcastReceiver extends BroadcastReceiver {
                         GPSApplication.getInstance().onShutdown();
                     }
                     break;
+                case Intent.ACTION_BOOT_COMPLETED:
+                    Intent intentActivity = new Intent(context,GPSActivity.class);
+                    intentActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intentActivity);
+                    break;
             }
         }
     }
